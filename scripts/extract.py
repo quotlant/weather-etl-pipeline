@@ -9,6 +9,8 @@ import requests
 
 
 def get_weather():
+"""
+fetches current weather for Nairobi, kenya using the open-meteo API"""
     
     url = "https://api.open-meteo.com/v1/forecast"
     params = {
@@ -18,7 +20,7 @@ def get_weather():
         
     }
     
-    response = requests.get(url, params=params)
+    response = requests.get(url, params=params, timeout=10)
     data = response.json()
     return data
     
