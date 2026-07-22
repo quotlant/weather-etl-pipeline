@@ -96,7 +96,14 @@ def load_weather(weather_data):
         
     
     except Exception as e:
+        
+        if connection:
+              connection.rollback()
+        
+      
         print(f"error loading weather data: {e}")
+        
+        
     
     
     
@@ -116,5 +123,7 @@ if __name__ == "__main__":
     weather = get_weather(-1.2833, 36.8167)
     transformed_weather = transform_weather(weather)
     load_weather(transformed_weather)
-    
+
+
+
 
