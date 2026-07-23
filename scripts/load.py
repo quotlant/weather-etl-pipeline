@@ -3,10 +3,17 @@ import os
 from dotenv import load_dotenv
 from extract import get_weather
 from transform import transform_weather
+import logging
+
 
 
 
 load_dotenv()
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s"
+)
 
 def load_weather(weather_data):
     """
@@ -92,7 +99,7 @@ def load_weather(weather_data):
         
         connection.commit()
         
-        print("weather loaded successfully!")
+        logging.info("weather loaded successfully!")
         
     
     except Exception as e:
@@ -101,7 +108,7 @@ def load_weather(weather_data):
               connection.rollback()
         
       
-        print(f"error loading weather data: {e}")
+        logging.error(f"error loading weather data: {e}")
         
         
     
@@ -119,10 +126,10 @@ def load_weather(weather_data):
             connection.close()
     
     
-if __name__ == "__main__":
-    weather = get_weather(-1.2833, 36.8167)
-    transformed_weather = transform_weather(weather)
-    load_weather(transformed_weather)
+# if __name__ == "__main__":
+#     weather = get_weather(-1.2833, 36.8167)
+#     transformed_weather = transform_weather(weather)
+#     load_weather(transformed_weather)
 
 
 
