@@ -13,12 +13,11 @@ services:
     ports:
       - 5432:5432
 
-volumes:
-  postgres_data:
-
   kafka:
     image: bitnami/kafka:latest
 
     environment:
     volumes:
     ports:
+
+volumes:
