@@ -26,7 +26,5 @@ services:
       KAFKA_CFG_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
       KAFKA_CFG_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
 
-    volumes:
-    ports: -"9092:9092"
-
 volumes:
+  postgres_data:
