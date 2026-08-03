@@ -1,5 +1,7 @@
 from kafka import KafkaProducer
 import json 
+from scripts.extract import get_weather
+from scripts.transform import transform_weather
 
 producer = KafkaProducer(
     bootstrap_servers = 'localhost:9092',
@@ -7,10 +9,20 @@ producer = KafkaProducer(
 )
 
 #tells the producer to send a message to kafka topic. producer(topic, message)
+# producer.send(
+#     "weather",
+#     {"message": "Hello Kafka!"}
+#     )
+
+extracted_weather = get_weather(-1.2833, 36.8167)
+transformed_weather = transform_weather(extracted_weather)
 producer.send(
     "weather",
-    {"message": "Hello Kafka!"}
+    transformed_weather
     )
+
+
+
 
 #send everything thats currently in the buffer before closing 
 producer.flush() 

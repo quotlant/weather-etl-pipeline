@@ -1,4 +1,4 @@
-from extract import get_weather
+from scripts.extract import get_weather
 
 
 
@@ -15,7 +15,7 @@ def transform_weather(weather_data):
        "longitude":weather_data["longitude"],
        "temperature_2m": current["temperature_2m"],
        "relative_humidity_2m": current["relative_humidity_2m"],
-       "is_day": current["is_day"],
+       "is_day": bool(current["is_day"]),
        "precipitation": current["precipitation"],
        "rain": current["rain"],
        "showers": current["showers"],

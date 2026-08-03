@@ -1,8 +1,8 @@
 import psycopg2
 import os
 from dotenv import load_dotenv
-from extract import get_weather
-from transform import transform_weather
+from scripts.extract import get_weather
+from scripts.transform import transform_weather
 import logging
 
 

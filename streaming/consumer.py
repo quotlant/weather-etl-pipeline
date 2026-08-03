@@ -1,5 +1,6 @@
 from kafka import KafkaConsumer
 import json
+from scripts.load import load_weather
 
 
 consumer = KafkaConsumer(
@@ -9,12 +10,7 @@ consumer = KafkaConsumer(
     
 )
 
- 
-
-
 for message in consumer:
     data = json.loads(message.value.decode("utf-8"))
     print(data)
-    
-    
-    
+    load_weather(data)
