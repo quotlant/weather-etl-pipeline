@@ -6,6 +6,7 @@ from scripts.load import load_weather
 consumer = KafkaConsumer(
     "weather",
     bootstrap_servers = "localhost:9092",
+    group_id = "weather-consumer-group"
 
     
 )
