@@ -68,6 +68,7 @@ def load_weather(weather_data):
         VALUES (
             %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s
             )
+        ON CONFLICT (time) DO NOTHING;
         """,
         (
         weather_data["time"],

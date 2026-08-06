@@ -1,8 +1,13 @@
-venv/
+# Airflow generated files
+airflow/airflow.db
+airflow/airflow.db-shm
+airflow/airflow.db-wal
+airflow/airflow.cfg
+airflow/logs/
+airflow/simple_auth_manager_passwords.json.generated
+
+# Python
 __pycache__/
 *.pyc
-
+EOF
 .env
-.gitkeep
-
-.DS_Store
