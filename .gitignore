@@ -4,10 +4,16 @@ airflow/airflow.db-shm
 airflow/airflow.db-wal
 airflow/airflow.cfg
 airflow/logs/
+
+# Airflow generated credentials
 airflow/simple_auth_manager_passwords.json.generated
 
 # Python
 __pycache__/
 *.pyc
-EOF
+
+# Environment variables
 .env
+
+# Temporary debug files
+importtime.txt
