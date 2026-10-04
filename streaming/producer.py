@@ -10,6 +10,17 @@ def get_producer():
     )
 
 
+producer = get_producer()
+producer.send(
+    "weather",
+    {"message": "Hello Kafka!"}
+)
+
+producer.flush()
+
+print("message sent successfully")
+
+
 # producer = KafkaProducer(
 #     bootstrap_servers = 'localhost:9092',
 #     value_serializer = lambda value: json.dumps(value).encode("utf-8")
